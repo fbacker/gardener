@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Water System - Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/nodemon"
+  },
+  "author": "fredrick.backer@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "moment": "^2.18.1",
+    "nrf": "^0.8.3",
+    "pi-gpio": "0.0.8",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-storage": "^4.1.2",
+    "redux-storage-engine-localstorage": "^1.1.4",
+    "redux-thunk": "^2.2.0",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
