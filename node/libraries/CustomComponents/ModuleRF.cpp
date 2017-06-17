@@ -18,15 +18,15 @@ const char* const ModuleRF::VERSION = "0.1";
 
 void ModuleRF::sendMessages(){
     // First, stop listening so we can talk
-    module->stopListening();
+    module.stopListening();
         
     // Send the final one back.
     DEBUG_PRINTLN("Sent data.");
-    module->write( &sendMessageData, sizeof(unsigned short) );
+    module.write( &sendMessageData, sizeof(unsigned short) );
     DEBUG_PRINTLN("Sent response.");
         
     // Now, resume listening so we catch the next packets.
-    module->startListening();
+    module.startListening();
 }
 
 void ModuleRF::addData(String data){
@@ -38,17 +38,17 @@ void ModuleRF::run(){
     DEBUG_PRINTLN("RF:Run:");
     
     // if there is data ready
-    if ( module->available() )
+    if ( module.available() )
     {
         // Dump the payloads until we've gotten everything
         bool done = false;
         unsigned short message;
         unsigned short rawMessage;
         
-        while ( module->available() )
+        while ( module.available() )
         {
             // Fetch the payload, and see if this was the last one.
-            module->read( &rawMessage, sizeof(unsigned long) );
+            module.read( &rawMessage, sizeof(unsigned long) );
             
             // Spew it
             DEBUG_PRINT("Got message ");

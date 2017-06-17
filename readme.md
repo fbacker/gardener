@@ -12,3 +12,4 @@ http://127.0.0.1:8000/
 
 
 git clone https://github.com/nRF24/RF24
+https://github.com/natevw/node-nrf

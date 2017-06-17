@@ -28,10 +28,11 @@ private:
     // data to send
     String sendMessageData;
 
-    RF24* module;
+    RF24 module;
     
     // Radio pipe addresses for the 2 nodes to communicate.
-    uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
+    //LL
+    uint64_t pipes[2] = { 0xF0F0F0F0E1, 0xF0F0F0F0D2 };
 
     // event que for messages
     EventManager* eventQueue;
@@ -48,7 +49,7 @@ public:
     ModuleRF(EventManager* eventQueueIn,uint8_t pin0In, uint8_t pin1In)
     {
         eventQueue = eventQueueIn;
-        RF24 module(pin0In,pin1In);
+        module = RF24(pin0In,pin1In);
         
         module.begin();
         module.setAutoAck(1);                    // Ensure autoACK is enabled

@@ -109,7 +109,7 @@ public:
    */
   RF24(uint16_t _cepin, uint16_t _cspin);
   //#if defined (RF24_LINUX)
-  
+  RF24();
     /**
   * Optional Linux Constructor
   *

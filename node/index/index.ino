@@ -1,3 +1,4 @@
+
 #include <SPI.h>
 #include <Thread.h>
 #include <ThreadController.h>
@@ -49,16 +50,16 @@ int lightphotosLength = 0;
 SensorLightPhoto lightphotos[] = {
   SensorLightPhoto(&eventManager,0,A1)
 };
-int moisturesLength = 1;
+int moisturesLength = 0;
 SensorMoisture moistures[] = {
   SensorMoisture(&eventManager,0,49,A2)
 };
-int sensorMoistureGroup4501Length = 1;
+int sensorMoistureGroup4501Length = 0;
 SensorMoistureGroup4501 moisturesGroup4501[] = {
   SensorMoistureGroup4501(&eventManager,0,3,48,A3,41,42,43)
 };
 // Set up nRF24L01 radio on SPI bus plus pins 9 & 10
-//ModuleRF RFModule = ModuleRF(&eventManager,9,10);
+ModuleRF RFModule = ModuleRF(&eventManager,9,10);
 
 
 
@@ -75,12 +76,15 @@ void setup() {
   eventManager.addListener(EventType::Moisture, &onEvent);
   eventManager.addListener(EventType::Complete, &onEvent);
 
-  //RFModule.setInterval(10000);
-  //RFModule.enabled = true;
-  //controller.add(&RFModule); 
+  RFModule.setInterval(10000);
+  RFModule.enabled = true;
+  controller.add(&RFModule); 
 
   delay(1000);
   onNextItem();
+
+  delay(1000);
+  Serial.println("do here");
 }
 
 void loop() {
